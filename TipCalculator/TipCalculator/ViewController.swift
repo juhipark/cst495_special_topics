@@ -30,11 +30,8 @@ class ViewController: UIViewController {
     @IBAction func calculateTip(_ sender: Any) {
         
         if let percentControl = sender as? UISegmentedControl {
-            print("Segmented")
-            
+            // UI animation
             percentControl.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
-            
-            print("clicked")
             
             UIView.animate(withDuration: 2.0, delay: 0, usingSpringWithDamping: 0.2, initialSpringVelocity: 6.0, options: .allowUserInteraction, animations:{ [weak self] in
                 self?.percentControl.transform = .identity
