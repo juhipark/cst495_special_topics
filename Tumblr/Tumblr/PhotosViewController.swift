@@ -72,4 +72,18 @@ class PhotosViewController: UIViewController, UITableViewDataSource, UITableView
         
         return cell
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // Find the selected Photo
+        let cell = sender as! UITableViewCell
+        let indexPath = tableView.indexPath(for: cell)!
+        let post = posts[indexPath.row]
+        
+        // Pass the selected photo to the details veiw controller
+        let detailsViewController = segue.destination as! PhotosDetailsViewController
+        detailsViewController.post = post
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3k6-gG-gPm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xG2-yx-Pco">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,21 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Tumblr" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-243" y="5"/>
-        </scene>
         <!--Photos View Controller-->
         <scene sceneID="Llr-pc-65L">
             <objects>
@@ -53,6 +38,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="photoCellImageView" destination="p9Q-kL-lix" id="YgG-qN-Y0E"/>
+                                            <segue destination="gsQ-lS-vIo" kind="show" id="KDg-po-4Xr"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -61,13 +47,128 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="sBs-mP-Ch6"/>
                     </view>
+                    <navigationItem key="navigationItem" id="mcl-wK-6dn"/>
                     <connections>
                         <outlet property="tableView" destination="DtU-B1-nPb" id="A7U-iK-sD9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ubB-ZS-RyD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1076.8115942028987" y="20.758928571428569"/>
+            <point key="canvasLocation" x="1114" y="-32"/>
+        </scene>
+        <!--Photos Details View Controller-->
+        <scene sceneID="cSG-AS-VIn">
+            <objects>
+                <viewController id="gsQ-lS-vIo" customClass="PhotosDetailsViewController" customModule="Tumblr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Xj4-Wj-OsV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S2S-c0-Fe9">
+                                <rect key="frame" x="0.0" y="88" width="414" height="365"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="xm5-BV-LYe" appends="YES" id="dx5-4e-WKw"/>
+                                </connections>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="wIQ-w3-90V"/>
+                    </view>
+                    <connections>
+                        <outlet property="detailsView" destination="S2S-c0-Fe9" id="nyF-6W-COf"/>
+                        <segue destination="BZI-XG-pGD" kind="presentation" identifier="fullScreenSegue" id="uev-Nt-HSW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CIe-Pa-KOb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="xm5-BV-LYe">
+                    <connections>
+                        <action selector="fullScreenGesture:" destination="gsQ-lS-vIo" id="BD0-b0-Dyb"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="1111.5942028985507" y="776.78571428571422"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="7e2-WI-cfC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xG2-yx-Pco" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QXT-8w-L0F">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3k6-gG-gPm" kind="relationship" relationship="rootViewController" id="3E4-kb-tAs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rOF-3Q-LV1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1113" y="-818"/>
+        </scene>
+        <!--Full Screen Photo View Controller-->
+        <scene sceneID="4ba-DR-czw">
+            <objects>
+                <viewController id="BZI-XG-pGD" customClass="FullScreenPhotoViewController" customModule="Tumblr" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FYq-nd-bDj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z32-Vo-LXd">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="705"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="guO-p0-zj4">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="844"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="844" id="HOa-Pc-f05"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="guO-p0-zj4" firstAttribute="centerX" secondItem="z32-Vo-LXd" secondAttribute="centerX" id="5za-eE-0sc"/>
+                                    <constraint firstItem="guO-p0-zj4" firstAttribute="leading" secondItem="z32-Vo-LXd" secondAttribute="leading" id="EOy-LZ-BZ0"/>
+                                    <constraint firstAttribute="trailing" secondItem="guO-p0-zj4" secondAttribute="trailing" id="H4Y-rL-dFz"/>
+                                    <constraint firstItem="guO-p0-zj4" firstAttribute="top" secondItem="z32-Vo-LXd" secondAttribute="top" id="NPL-Wv-Uan"/>
+                                    <constraint firstAttribute="bottom" secondItem="guO-p0-zj4" secondAttribute="bottom" constant="-139" id="bjX-ir-Mag"/>
+                                </constraints>
+                            </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZ4-yI-O9p">
+                                <rect key="frame" x="178" y="782" width="58" height="30"/>
+                                <color key="backgroundColor" red="1" green="0.52120530610000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Go Back">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="titleShadowColor" red="1" green="0.49327188729999999" blue="0.47399842739999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="goBack:" destination="BZI-XG-pGD" eventType="touchUpInside" id="JCN-f4-cme"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="z32-Vo-LXd" firstAttribute="trailing" secondItem="TmH-Cx-AqY" secondAttribute="trailing" id="Hmk-ji-1oD"/>
+                            <constraint firstItem="z32-Vo-LXd" firstAttribute="leading" secondItem="TmH-Cx-AqY" secondAttribute="leading" id="J6e-W7-Rr1"/>
+                            <constraint firstItem="z32-Vo-LXd" firstAttribute="top" secondItem="FYq-nd-bDj" secondAttribute="top" id="WDM-AP-OZT"/>
+                            <constraint firstItem="ZZ4-yI-O9p" firstAttribute="centerX" secondItem="FYq-nd-bDj" secondAttribute="centerX" id="XYp-X3-o8v"/>
+                            <constraint firstItem="TmH-Cx-AqY" firstAttribute="bottom" secondItem="ZZ4-yI-O9p" secondAttribute="bottom" constant="50" id="kuC-L0-Ace"/>
+                            <constraint firstAttribute="bottom" secondItem="z32-Vo-LXd" secondAttribute="bottom" constant="191" id="l1D-kb-1Bz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="TmH-Cx-AqY"/>
+                    </view>
+                    <connections>
+                        <outlet property="fullScreenView" destination="guO-p0-zj4" id="Woa-9x-nkE"/>
+                        <outlet property="imageViewBottomConstraint" destination="l1D-kb-1Bz" id="nGA-x1-EsB"/>
+                        <outlet property="imageViewLeadingConstraint" destination="J6e-W7-Rr1" id="9Dg-cc-4Q3"/>
+                        <outlet property="imageViewTopConstraint" destination="WDM-AP-OZT" id="L3m-3y-OLj"/>
+                        <outlet property="imageViewTrailingConstraint" destination="Hmk-ji-1oD" id="156-ZY-UsJ"/>
+                        <outlet property="scrollView" destination="z32-Vo-LXd" id="eDL-9H-x62"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SwW-SR-5aH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1111.5942028985507" y="1504.6875"/>
         </scene>
     </scenes>
 </document>

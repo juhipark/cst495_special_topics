@@ -2,10 +2,36 @@
 
 **Tumblr** is a photo browsing app using the [The Tumblr API](https://www.tumblr.com/docs/en/api/v2#posts).
 
-📝 `NOTE - PASTE PART 2 SNIPPET HERE:` Paste the README template for part 2 of this assignment here at the top. This will show a history of your development process, which users stories you completed and how your app looked and functioned at each step.
+# Tumblr Lab 2 - *Tumblr-Details Screen*
+## User Stories
 
+The following **required** user stories are complete:
 
-##Tumblr Part 1
+- [x] User can tab an image to view a larger image in a detail view (5pts)
+
+The following **stretch** user stories are implemented:
+
+- [ ] Add Avatar and Publish Dates (+2pt)
+- [x ] Zoomable Photo View (+2pt)
+- [ ] Infinite Scrolling (+2pt)
+
+The following **additional** user stories are implemented:
+
+- [ ] List anything else that you can get done to improve the app functionality! (+1-3pts)
+
+Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
+
+## Video Walkthrough
+
+Here's a walkthrough of implemented user stories:
+
+<img src='ios_Tumblr2Xr.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+
+## Notes
+
+Updating the date label
+
+# Tumblr Part 1
 
 ## User Stories
 The following **required** user stories are complete:
